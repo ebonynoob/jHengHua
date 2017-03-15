@@ -93,7 +93,7 @@
                         <div class="col-sm-8">
                             <p class="form-control-static">
                                 <c:if test="${empty session_user}">
-                                    <small><a href="javascript:$('#popModal').modal('show');">登录后可查看</a></small>
+                                    <small><a href="javascript:void(0)" onclick="damnclick()">登录后可查看</a></small>
                                 </c:if>
                                 <c:if test="${not empty session_user}">
                                     <span id="stock">0</span> <span id="unit"></span>
@@ -135,6 +135,9 @@
 <script>
     var detailId = '${sampleDetail.detailId}';
     var hasLogin = ${not empty session_user};
+    function damnclick(){
+    	$('#popModal').modal('show');
+    }
 </script>
 <jsp:include page="common/foot.jsp">
     <jsp:param name="js" value="javascripts/sampleDetail"/>
